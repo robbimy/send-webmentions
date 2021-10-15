@@ -1,0 +1,20 @@
+name: Auto-publish
+on:
+  rss:
+    url: https://robbinespu.gitlab.io/indieweb/index.xml
+    config:
+      logLevel: debug
+      limit: 1
+jobs:
+  send_webmentions:
+    name: Send webmentions
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+     
+      - name: "Twitter"
+        run: |
+          curl -i \
+          -d source=${{on.rss.outputs.link}} \
+          -d target=https://brid.gy/publish/twitter \
+          https://brid.gy/publish/webmention
