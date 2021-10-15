@@ -11,7 +11,7 @@ jobs:
     steps:
     - name: curl
       uses: wei/curl@v1
-        with:
+      with:
          args: -i -d source=${{on.rss.outputs.link}} -d target=https://brid.gy/publish/twitter https://brid.gy/publish/webmention
          is_debug: true
             
