@@ -1,4 +1,4 @@
-name: Send webmentions for new blog posts
+name: auto publish to twitter for new indieweb posts
 on:
   rss:
     url: https://robbinespu.gitlab.io/indieweb/index.xml
@@ -6,8 +6,8 @@ on:
       logLevel: debug
       limit: 10
 jobs:
-  send_webmentions:
-    name: Send webmentions
+  send_webmentions_bridgy_twitter:
+    name: Send webmentions to bridy twitter
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     steps:
