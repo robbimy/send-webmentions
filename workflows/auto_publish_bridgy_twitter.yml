@@ -6,13 +6,11 @@ on:
       logLevel: debug
       limit: 10
 jobs:
-  send_webmentions_bridgy_twitter:
-    name: Send webmentions to bridy twitter
+  curl:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
     steps:
-      - name: "auto publish via bridgy"
-        uses: wei/curl@v1
+    - name: curl
+      uses: wei/curl@v1
         with:
          args: -i -d source=${{on.rss.outputs.link}} -d target=https://brid.gy/publish/twitter https://brid.gy/publish/webmention
          is_debug: true
