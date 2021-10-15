@@ -6,8 +6,8 @@ on:
       logLevel: debug
       limit: 1
 jobs:
-  send_webmentions:
-    name: Send webmentions
+  publish_twitter:
+    name: publish on twitter
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     steps:
@@ -17,4 +17,4 @@ jobs:
           curl -i \
           -d source=${{on.rss.outputs.link}} \
           -d target=https://brid.gy/publish/twitter \
-          https://brid.gy/publish/webmention
+          https://brid.gy/publish/webmention | jq
