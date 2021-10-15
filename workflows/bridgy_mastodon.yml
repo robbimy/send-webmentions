@@ -1,0 +1,20 @@
+name: Auto-publish
+on:
+  rss:
+    url: https://robbinespu.gitlab.io/indieweb/index.xml
+    config:
+      logLevel: debug
+      limit: 1
+jobs:
+  publish_mastodon:
+    name: publish on mastodon
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+     
+      - name: "Mastodon"
+        run: |
+          curl -i \
+          -d source=${{on.rss.outputs.link}} \
+          -d target=https://brid.gy/publish/mastodon \
+          https://brid.gy/publish/webmention
