@@ -17,4 +17,4 @@ jobs:
           curl -i \
           -d source=${{on.rss.outputs.link}} \
           -d target=https://brid.gy/publish/twitter \
-          https://brid.gy/publish/webmention | jq
+          https://brid.gy/publish/webmention
