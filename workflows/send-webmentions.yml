@@ -19,34 +19,4 @@ jobs:
           method: "POST"
           params: '{ "url": "${{on.rss.outputs.link}}", "token": "${{ secrets.WM_TOKEN }}" }'
           is_debug: true
-          
-      - name: "Bridgy twitter"
-        run: |
-          curl -i \
-          -d source=${{on.rss.outputs.link}} \
-          -d target=https://brid.gy/publish/twitter \
-          https://brid.gy/publish/webmention
-
-      - name: "Bridgy mastodon"
-        run: |
-          curl -i \
-          -d source=${{on.rss.outputs.link}} \
-          -d target=https://brid.gy/publish/mastodon \
-          https://brid.gy/publish/webmention
-
-      - name: "Bridgy github"
-        run: |
-          curl -i \
-          -d source=${{on.rss.outputs.link}} \
-          -d target=https://brid.gy/publish/github \
-          https://brid.gy/publish/webmention
-
-      - name: "Bridgy flickr"
-        run: |
-          curl -i \
-          -d source=${{on.rss.outputs.link}} \
-          -d target=https://brid.gy/publish/flickr \
-          https://brid.gy/publish/webmention
-
-
-
+ 
