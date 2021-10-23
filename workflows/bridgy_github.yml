@@ -4,7 +4,7 @@ on:
     url: https://robbinespu.gitlab.io/indieweb/index.xml
     config:
       logLevel: debug
-      limit: 1
+      limit: 5
 jobs:
   publish_twitter:
     name: publish on github
