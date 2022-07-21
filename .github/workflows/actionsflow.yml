@@ -14,17 +14,17 @@ on:
       verbose:
         description: "--verbose: debug workflow, true or false"
         required: false
-        default: "false"
+        default: "true"
   schedule:
-    #- cron: "0 */1 * * *" # every hour
-    - cron: "*/15 * * * *" # every 15 minutes
+    - cron: "0 */1 * * *" # every hour
+    #- cron: "*/15 * * * *" # every 15 minutes
   push:
     branches:
       - main
 jobs:
   run:
     runs-on: ubuntu-latest
-    timeout-minutes: 3
+    timeout-minutes: 10
     name: Run
     steps:
       - uses: actions/checkout@v2
